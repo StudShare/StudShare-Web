@@ -1,0 +1,25 @@
+{
+  "name": "studshare",
+  "version": "1.0.0",
+  "description": "<b>Temat pracy:</b> Projekt serwisu spolecznosciowego do wymiany notatkami, przykladami i wiedza miedzy uczniami i studentami.<br /><br />",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-connect": "^2.2.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-webserver": "^0.9.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StudShare/StudShare.git"
+  },
+  "author": "StudShare",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StudShare/StudShare/issues"
+  },
+  "homepage": "https://github.com/StudShare/StudShare#readme"
+}

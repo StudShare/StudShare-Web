@@ -1,0 +1,6 @@
+
+.idea/
+libraries/jqueryUI/*
+libraries/moment/*
+libraries/bootstrap/npm.js
+libraries/bootstrap/bootstrap-datetimepicker.min.js

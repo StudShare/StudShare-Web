@@ -1,0 +1,77 @@
+.navbar {
+  background-color: #00bcd4; }
+  .navbar .btn-search {
+    background-color: #70c6d1; }
+  .navbar .glyphicon {
+    color: white; }
+  .navbar .input-group > * {
+    border-color: #00bcd4; }
+
+.navbar-right a {
+  margin-right: 20px;
+  margin-left: 20px; }
+
+.container-fluid {
+  margin-top: 10%; }
+
+.text-div h2 {
+  margin-top: 0px;
+  color: #03545e; }
+
+.text-div p {
+  padding-right: 10%;
+  font-size: 20px; }
+
+.register-side {
+  background: white;
+  margin-top: 0%;
+  right: 0;
+  position: fixed;
+  display: none; }
+
+.frame-area {
+  color: white;
+  padding-bottom: 10px;
+  margin-right: 20%;
+  border-radius: 5px;
+  border: 3px solid #03545e; }
+  .frame-area .header {
+    top: 0%;
+    padding-left: 5%;
+    font-size: 25px;
+    background-color: #03545e;
+    height: 10%; }
+  .frame-area span, .frame-area button, .frame-area button:hover, .frame-area button:focus {
+    color: white;
+    background-color: #03545e; }
+  .frame-area input {
+    color: #03545e; }
+  .frame-area .row a {
+    color: #03545e;
+    margin-left: 10%;
+    display: block; }
+  .frame-area .row button {
+    float: right;
+    margin-right: 10%; }
+  .frame-area .alert {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 5px; }
+
+.inputs-frame {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 5%; }
+  .inputs-frame .input-group {
+    margin-top: 5%;
+    width: 100%; }
+  .inputs-frame .input-group > * {
+    border-color: #03545e; }
+  .inputs-frame .input-group-addon {
+    width: 15%; }
+
+#return-to-login, #register-me {
+  margin-top: 5px;
+  cursor: pointer; }

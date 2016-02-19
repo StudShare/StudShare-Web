@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Witaj na stronie głownej</title>
+    <script src="libraries/jquery/jquery-2.1.4.js"></script>
+    <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="js/utils.js"></script>
+    <script src="js/main-page.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+
+        <div class="navbar-form navbar-left">
+            <img src="images/logo_small.png">
+            <div class="input-group input-group-search">
+                <input type="text" class="form-control" placeholder="Szukaj...">
+                <span class="btn btn-search input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+            </div>
+        </div>
+       <button id="logout">Logout</button>
+        <div class="navbar-form navbar-right">
+            <a href="#"><img src="images/browse.png"></a>
+            <img src="images/separator.png">
+            <a href="#"><img src="images/account.png"></a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <img src="images/welcomephoto.png">
+            <br><br><br>
+        </div>
+
+        <div class="col-md-6 login-side">
+            <div class="text-div">
+                <h2>Witaj w świe cie darmowych notatek!</h2>
+                <p>
+                    StudShare to innowacyjna platforma wymiany wiedzy,
+                    notatek, rozwiązań zadań i poradników między uczniami
+                    i studentami ze wszystkich poziomów edukacji. StudShare to miejsce,
+                    które pomoże Ci przygotować się do zaliczenia jak i
+                    zgłębić nową wiedzę na interesujące Cię zagadnienia w zaledwie kilka kliknięć myszką!
+                    Zarejestruj się i dołącz do naszej społęczności już dziś!
+                </p>
+            </div>
+            <div class="frame-area">
+                <div class="header">Zaloguj się</div>
+
+                <div class="inputs-frame">
+                    <div class="input-group">
+                        <span class="input-group-addon">U</span>
+                        <input type="text" class="form-control" id="login" placeholder="Login">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="password" class="form-control" id="password" placeholder="Hasło">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#">Zapomniałem hasło</a>
+                        <a id="register-me">Chcę się zarejestrować</a>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn" id="btn-login">Zaloguj</button>
+                    </div>
+                </div>
+                <div class="alert alert-danger fade" id='login-alert'>
+                    Login-Alert
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6 register-side" >
+            <div class="frame-area">
+                <div class="header">Zarejestruj się</div>
+
+                <div class="inputs-frame">
+                    <div class="input-group">
+                        <span class="input-group-addon" >U</span>
+                        <input type="text" class="form-control" id="new-login" placeholder="Login">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" id="new-email" placeholder="Email">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">@</span>
+                        <input type="text" class="form-control" id="new-repeat-email" placeholder="Powtórz Email">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="password" class="form-control" id="new-password" placeholder="Hasło">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="password" class="form-control" id="new-repeat-password" placeholder="Powtorz haslo">
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <a id="return-to-login">Powrót do logowania</a>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn" id="btn-register">Zarejestruj</button>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger fade" id='register-alert'>
+                            Register-Alert
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
