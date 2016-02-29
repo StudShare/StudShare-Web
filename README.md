@@ -20,7 +20,7 @@
       - podglad dodanych przez uzytkownika notatek tekstowych 7.03.2016
       - edycja dodanych przez użytkownika notatek tekstowych (kasowanie lub edycja tytulu, tagow) 7.03.2016
       - wczytywanie plikow tekstowych z pamieci wewnetrznej urzadzenia 7.03.2016
-  - możliwość tagowania notatek i wyszukiwanie notatek po tagach<br /> 21.03.2016
-  - możliwość oceniania notatek<br /> 28.03.2016
+  - możliwość tagowania notatek i wyszukiwanie notatek po tagach 21.03.2016
+  - możliwość oceniania notatek 28.03.2016
 
 
