@@ -8,7 +8,7 @@
   
 <b>2. Serwis internetowy</b><br /><br />
 - możliwość przeglądania i edycji swoich notatek z plikami w każdym formacie <b>Kamil Liwiński 7.03.2016</b>
-- <strike>możliwość tagowania notatek i wyszukiwanie notatek po tagach <b>Mateusz Zweigert 21.03.2016</b></strike>
+- <strike>możliwość tagowania notatek i wyszukiwanie notatek po tagach <b>Mateusz Zweigert 21.03.2016</b></strike>✔
 - dodawanie ocen notatek <b>Mateusz Zweigert, Kamil Liwiński 28.03.2016</b>
 
 <b>3. Aplikacja mobilna </b><br />
