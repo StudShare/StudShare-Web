@@ -1,7 +1,9 @@
 package com.StudShare.service;
 
 import com.StudShare.config.HibernateConfig;
+import com.StudShare.domain.Note;
 import com.StudShare.domain.SiteUser;
+import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +11,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Service("siteUserManager")
@@ -38,6 +42,13 @@ public class SiteUserManagerImpl implements SiteUserManagerDao
     public SiteUser findSiteUserByLogin(String login)
     {
         return (SiteUser) sessionFactory.getCurrentSession().getNamedQuery("getPersonByLogin").setString("login", login).uniqueResult();
+    }
+
+    @Override
+    public List<Note> findSiteUserByLoginWithNotes(String login) {
+        SiteUser siteUser = (SiteUser) sessionFactory.getCurrentSession().getNamedQuery("getPersonByLogin").setString("login", login).uniqueResult();
+        siteUser.getNotes().size();
+        return siteUser.getNotes();
     }
 
     @Override

@@ -1,16 +1,12 @@
 package com.StudShare.rest.registration;
 
-import com.StudShare.rest.HTTPHeaderNames;
+import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.net.URISyntaxException;
@@ -29,18 +25,15 @@ public class RegistrationResource
 
     @POST
     @Path("/register")
-    public Response registration(@Context HttpHeaders httpHeaders,
+    public Response registration(@FormDataParam("login") String login,
+                                 @FormDataParam("email") String email,
+                                 @FormDataParam("repeatEmail") String repeatEmail,
+                                 @FormDataParam("password") String password,
+                                 @FormDataParam("repeatPassword") String repeatPassword,
                                  @Context UriInfo uriInfo) throws NoSuchProviderException, NoSuchAlgorithmException, URISyntaxException
     {
-
-        String login = httpHeaders.getHeaderString(HTTPHeaderNames.LOGIN);
-        String email = httpHeaders.getHeaderString(HTTPHeaderNames.EMAIL);
-        String repeatEmail = httpHeaders.getHeaderString(HTTPHeaderNames.REPEAT_EMAIL);
-        String password = httpHeaders.getHeaderString(HTTPHeaderNames.PASSWORD);
-        String repeatPassword = httpHeaders.getHeaderString(HTTPHeaderNames.REPEAT_PASSWORD);
-
+        System.out.println("login = [" + login + "], email = [" + email + "], repeatEmail = [" + repeatEmail + "], password = [" + password + "], repeatPassword = [" + repeatPassword + "], uriInfo = [" + uriInfo + "]");
         return registrationHelper.registerUser(login, email, repeatEmail, password, repeatPassword, uriInfo).build();
-
     }
 
     @GET

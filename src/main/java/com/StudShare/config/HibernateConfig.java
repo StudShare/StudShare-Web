@@ -17,8 +17,8 @@ public class HibernateConfig
     private String DRIVER_CLASS_NAME;
     @Value("${jdbc.url}")
     private String URL;
-    @Value("${jdbc.user}")
-    private String USER;
+    @Value("${jdbc.username}")
+    private String USERNAME;
     @Value("${jdbc.password}")
     private String PASSWORD;
     @Value("${hibernate.hbm2ddl.auto}")
@@ -37,7 +37,7 @@ public class HibernateConfig
 
         dataSource.setDriverClassName(DRIVER_CLASS_NAME);
         dataSource.setUrl(URL);
-        dataSource.setUsername(USER);
+        dataSource.setUsername(USERNAME);
         dataSource.setPassword(PASSWORD);
         dataSource.setMaxWait(100000);
         dataSource.setMaxIdle(25);

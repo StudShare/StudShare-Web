@@ -1,6 +1,8 @@
 package com.StudShare.config;
 
+import com.sun.jersey.api.json.JSONConfiguration;
 import org.apache.catalina.SessionListener;
+import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
@@ -11,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.client.Client;
 
 
 @Configuration
@@ -23,19 +26,18 @@ public class JerseyConfig extends ResourceConfig
     public JerseyConfig()
     {
        // register(JAXBContextResolver.class);
-        //register(JacksonFeature.class);
+        register(JacksonFeature.class);
         register(MultiPartFeature.class);
-        register(SessionListener.class);
+       // register(SessionListener.class);
         packages(REST_PACKAGE);
     }
-
-
 
     @Bean
     public ServletRegistrationBean jerseyServlet()
     {
         ServletRegistrationBean registration = new ServletRegistrationBean(new ServletContainer(), SERVLET_MAPPING);
         registration.addInitParameter(ServletProperties.JAXRS_APPLICATION_CLASS, JerseyConfig.class.getName());
+        //registration.addInitParameter(JSONConfiguration.FEATURE_POJO_MAPPING,"true");
         return registration;
     }
 }

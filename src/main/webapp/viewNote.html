@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Podgląd </title>
+    <script src="libraries/jquery/jquery-2.1.4.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap-tagsinput.js"></script>
+    <script src="libraries/bootstrap/js/typeahead.bundle.js"></script>
+    <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libraries/bootstrap/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="libraries/bootstrap/css/typehead.css" rel="stylesheet">
+
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/note.css" rel="stylesheet">
+    <script src="js/utils.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/view-page.js"></script>
+
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="index.html"><img src="images/logo_small.png"></a></li>
+                <li>
+                    <div class="input-group input-group-search">
+                        <input type="text" id="search-input" class="form-control" placeholder="Szukaj...">
+                        <span class="btn btn-search input-group-addon" id="search"><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="viewNote.html" ><img src="images/browse.png"></a></li>
+                <li><a><img src="images/separator.png"></a></li>
+                <li><a href="myAccount.html"><img src="images/account.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!--Naglowek -->
+
+
+    <div class="jumbotron text-center">
+        <h1><center>Panel zarządzania notatkami</center></h1>
+        <p>Dodaj, edytuj lub usuń notatkę</p>
+        <a href="addNote.html">
+            <button type="button" class="btn-lg" id="info-btn-add">Dodaj</button>
+        </a>
+        <a href="viewNote.html">
+            <button type="button" class="btn-lg" id="info-btn-view">Podgląd</button>
+        </a>
+    </div>
+
+
+    <div class="container">
+        <div class="panel-group" id="accordion">
+            <h2>Przesłane notatki</h2>
+        </div>
+        <div class="modal fade" id="delete-modal" role="dialog">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Czy na pewno chcesz usunąć daną notatkę?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="confirm-delete" class="btn btn-danger" data-dismiss="modal">Usuń</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Anuluj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

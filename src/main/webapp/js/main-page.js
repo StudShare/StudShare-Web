@@ -1,19 +1,31 @@
-
+if(getCookie('login') != null &&  getCookie('auth_token') != null)
+    window.location.href = 'viewNote.html';
 $(document).ready(function ()
 {
     var $registerAlert = $("#register-alert"),
-        $loginAlert = $("#login-alert");
+        $loginAlert = $("#login-alert"),
+        formData;
+
+
+    $loginAlert.removeClass('in');
+    $loginAlert.text('');
+    if(localStorage.getItem('message') !== null)
+    {
+        $loginAlert.addClass('in');
+        $loginAlert.text(localStorage.message);
+        localStorage.removeItem('message');
+    }
 
     $("#register-me").click(function ()
     {
-        $(".login-side").fadeToggle();
-        $(".register-side").fadeToggle("fast");
+        $(".login-side").fadeToggle(500);
+        setTimeout(function(){$(".register-side").fadeToggle("fast")}, 500);
     });
 
     $("#return-to-login").click(function ()
     {
-        $(".register-side").fadeToggle();
-        $(".login-side").fadeToggle("fast");
+        $(".register-side").fadeToggle(500);
+        setTimeout(function(){$(".login-side").fadeToggle("fast");}, 500);
     });
 
     $("#btn-login").click(function ()
@@ -24,15 +36,22 @@ $(document).ready(function ()
         var login =  $("#login").val(),
             password = $("#password").val();
 
-        doAjax("./rest/user/login", 'POST', '',
-            {
-                login: login,
-                password: password,
-                ssid: getCookie('auth_token')
-            }, null).
+        formData = new FormData();
+        formData.append('login', login);
+        formData.append('password', password);
+        formData.append('authToken', getCookie('auth_token'));
+
+        $.ajax({
+            url: "./rest/user/login",
+            type: "POST",
+            data: formData,
+            enctype: 'multipart/form-data',
+            processData: false,  // tell jQuery not to process the data
+            contentType: false   // tell jQuery not to set contentType
+        }).
         success(function(response)
         {
-            //tu bedzie przekierowanie do moich notatek albo profilu
+            window.location.href = 'viewNote.html';
         }).
         error(function(errorThrown)
         {
@@ -60,18 +79,25 @@ $(document).ready(function ()
             password = $('#new-password').val(),
             repeatPassword = $('#new-repeat-password').val();
 
+        formData = new FormData();
+        formData.append('login', login);
+        formData.append('email', email);
+        formData.append('repeatEmail', repeatEmail);
+        formData.append('password', password);
+        formData.append('repeatPassword', repeatPassword);
 
-        doAjax("./rest/user/register", 'POST', '',
-            {
-                'login': login,
-                'email' : email,
-                'repeat_email': repeatEmail,
-                'password': password,
-                'repeat_password': repeatPassword
-            }, null).
+
+        $.ajax({
+            url: "./rest/user/register",
+            type: "POST",
+            data: formData,
+            enctype: 'multipart/form-data',
+            processData: false,  // tell jQuery not to process the data
+            contentType: false   // tell jQuery not to set contentType
+        }).
         success(function()
         {
-            window.location.href = '../registration.html';
+            window.location.href = 'registration.html';
         }).
         error(function(errorThrown)
         {
@@ -88,30 +114,4 @@ $(document).ready(function ()
 
     });
 
-    $("#logout").click(function ()
-    {
-
-        doAjax("./rest/user/logout", 'POST', '',
-            {
-                'login': getCookie("login"),
-                'auth_token': getCookie('auth_token')
-            }, null).
-        success(function()
-        {
-            console.log('logout');
-        }).
-        error(function(errorThrown)
-        {
-
-            if( errorThrown.status != 400 )
-                console.log(errorThrown.responseText);
-            else
-            {
-                $registerAlert.addClass("in");
-                $registerAlert.text(errorThrown.responseText);
-            }
-
-        });
-
-    });
 });

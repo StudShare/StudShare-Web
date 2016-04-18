@@ -1,7 +1,10 @@
 package com.StudShare.service;
 
+import com.StudShare.domain.Note;
 import com.StudShare.domain.SiteUser;
 import org.hibernate.SessionFactory;
+
+import java.util.List;
 
 public interface SiteUserManagerDao
 {
@@ -16,6 +19,8 @@ public interface SiteUserManagerDao
     SiteUser updateUser(SiteUser siteUser);
 
     SiteUser findSiteUserByLogin(String login);
+
+    List<Note> findSiteUserByLoginWithNotes(String login);
 
     SiteUser findSiteUserByEmail(String email);
 

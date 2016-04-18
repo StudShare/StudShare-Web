@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search note</title>
+    <script src="libraries/jquery/jquery-2.1.4.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap-tagsinput.js"></script>
+    <script src="libraries/bootstrap/js/typeahead.bundle.js"></script>
+    <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libraries/bootstrap/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="libraries/bootstrap/css/typehead.css" rel="stylesheet">
+
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/note.css" rel="stylesheet">
+    <script src="js/utils.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/search-page.js"></script>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="index.html"><img src="images/logo_small.png"></a></li>
+                <li>
+                    <div class="input-group input-group-search">
+                        <input type="text" id="search-input" class="form-control" placeholder="Szukaj...">
+                        <span class="btn btn-search input-group-addon" id="search"><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="viewNote.html" ><img src="images/browse.png"></a></li>
+                <li><a><img src="images/separator.png"></a></li>
+                <li><a href="myAccount.html"><img src="images/account.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1><center>Szukaj notatek</center></h1>
+    </div>
+
+
+    <div class="jumbotron star-jumbo">
+        <h2><center>Ocena notatki</center></h2>
+        <div class="center">
+        <span class="star-rating">
+              <input type="radio" name="rating" value="1"><i></i>
+              <input type="radio" name="rating" value="2"><i></i>
+              <input type="radio" name="rating" value="3"><i></i>
+              <input type="radio" name="rating" value="4"><i></i>
+              <input type="radio" name="rating" value="5"><i></i>
+        </span>
+        </div>
+        <div class="col-md-10">
+            <div class="text-center alert alert-danger fade" id='note-alert'>
+                Note-Alert
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="panel-group" id="accordion">
+            <h2 class="text-center">Znalezione notatki</h2>
+        </div>
+    </div>
+
+    <div class="alert alert-success fade" id='success-add-alert'>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Dodano</strong> ocenę do notatki.
+    </div>
+
+</body>
+</html>

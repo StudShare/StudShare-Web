@@ -65,7 +65,7 @@ public final class LoginAuthenticator
             return noCacheResponse.getNoCacheResponseBuilder(Response.Status.BAD_REQUEST).entity("Osiągnąłeś limit zalogowań");*/
 
         if(logTokenManager.findLogTokenBySSID(ssid) != null)
-            return noCacheResponse.getNoCacheResponseBuilder(Response.Status.BAD_REQUEST).entity("Jesteś już zalogowny");
+            return noCacheResponse.getNoCacheResponseBuilder(Response.Status.OK);
 
 
         passwordMatcher = new PasswordService();
@@ -96,8 +96,10 @@ public final class LoginAuthenticator
     public Response.ResponseBuilder logout(String login, String ssid) throws GeneralSecurityException
     {
 
-        LogToken logToken = logTokenManager.findLogTokenBySSID(ssid);
+        if (!isAuthTokenValid(login, ssid))
+            noCacheResponse.getNoCacheResponseBuilder(Response.Status.UNAUTHORIZED);
 
+        LogToken logToken = logTokenManager.findLogTokenBySSID(ssid);
         logTokenManager.deleteLogToken(logToken);
         NewCookie loginC = new NewCookie(new Cookie("login", null, "/", ""),"", 0, false);
         NewCookie auth_tokenC = new NewCookie(new Cookie("auth_token", null, "/", ""),"", 0, false);
@@ -114,8 +116,11 @@ public final class LoginAuthenticator
 
         if (logToken == null || siteUser == null)
             return false;
-        if (!(logToken.getSiteUser().getIdSiteUser() == siteUser.getIdSiteUser()))
+        if (logToken.getSiteUser().getIdSiteUser() != siteUser.getIdSiteUser())
             return false;
+        if (!logToken.getSiteUser().getLogin().equals(siteUser.getLogin()))
+            return false;
+
 
         return true;
 

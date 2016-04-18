@@ -38,16 +38,5 @@ public class RESTRequestFilter implements ContainerRequestFilter
             return;
         }
 
-        // For any pther methods besides login, the authToken must be verified
-        if (path.startsWith("user/logout"))
-        {
-            String authToken = requestCtx.getHeaderString(HTTPHeaderNames.AUTH_TOKEN);
-            String username = requestCtx.getHeaderString(HTTPHeaderNames.LOGIN);
-            // if it isn't valid, just kick them out.
-            if (!authenticatorLogin.isAuthTokenValid(username, authToken))
-            {
-                requestCtx.abortWith(Response.status(Response.Status.UNAUTHORIZED).build());
-            }
-        }
     }
 }

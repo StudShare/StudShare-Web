@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj </title>
+    <script src="libraries/jquery/jquery-2.1.4.js"></script>
+	<script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+	<script src="libraries/bootstrap/js/bootstrap-tagsinput.js"></script>
+	<script src="libraries/bootstrap/js/typeahead.bundle.js"></script>
+	<link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="libraries/bootstrap/css/bootstrap-tagsinput.css" rel="stylesheet">
+	<link href="libraries/bootstrap/css/typehead.css" rel="stylesheet">
+
+	<script src="js/utils.js"></script>
+	<script src="js/navbar.js"></script>
+    <script src="js/add-page.js"></script>
+
+	<link href="css/index.css" rel="stylesheet">
+	<link href="css/note.css" rel="stylesheet">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<ul class="nav navbar-nav navbar-left">
+				<li><a href="index.html"><img src="images/logo_small.png"></a></li>
+				<li>
+					<div class="input-group input-group-search">
+						<input type="text" id="search-input" class="form-control" placeholder="Szukaj...">
+						<span class="btn btn-search input-group-addon" id="search"><span class="glyphicon glyphicon-search"></span></span>
+					</div>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="viewNote.html" ><img src="images/browse.png"></a></li>
+				<li><a><img src="images/separator.png"></a></li>
+				<li><a href="myAccount.html"><img src="images/account.png"></a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="jumbotron text-center">
+		<h1>Panel zarządzania notatkami</h1>
+		<p>Dodaj, edytuj lub usuń notatkę</p>
+		<a href="addNote.html">
+			<button type="button" class="btn-lg" id="info-btn-add">Dodaj</button>
+		</a>
+		<a href="viewNote.html">
+			<button type="button" class="btn-lg" id="info-btn-view">Podgląd</button>
+		</a>
+	</div>
+
+	<!--Add side-->
+	<div class="frame-area add-side">
+		<div class="header">Dodaj</div>
+		<div class="inputs-frame">
+
+
+			<p class="help-block">Wybierz typ notatki, którą chcesz dodać.</p>
+
+			<form class="radioBlack">
+				<input type="radio" name="gender" value="text" id="text-rb"> Tekstowa<br>
+				<input type="radio" name="gender" value="graphic" id="graphic-rb"> Graficzna<br>
+				<input type="radio" name="gender" value="file" id="file-rb"> Plik pdf
+			</form>
+
+			<div class="form-group">
+				<label for="title">Tytuł</label>
+				<input type="text" class="form-control" id="title" placeholder="Tytuł">
+			</div>
+			<div class="input-group text-side">
+				<textarea class="form-control" rows="15" id="textcontent"></textarea>
+			</div>
+
+			<div class="row tags">
+				<div class="col-md-4" style="color: black; font-size: 20px;">
+					Add tags to your note:
+				</div>
+				<div class="col-md-8" >
+					<input class="form-control" id="note-tags">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-center alert alert-danger fade" id='tag-alert'>
+						Note-Alert
+					</div>
+				</div>
+			</div>
+			<div class="row picture-side">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="picturecontent">Zdjęcie</label>
+						<input type="file" id="picturecontent" onchange="ValidateSingleInputPhoto(this)">
+					</div>
+				</div>
+			</div>
+
+			<div class="row pdf-side">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="filecontent">Pdf</label>
+						<input type="file" id="filecontent" onchange="ValidateSingleInputPDF(this)">
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-10">
+					<div class="text-center alert alert-danger fade" id='note-alert'>
+						Note-Alert
+					</div>
+				</div>
+				<div class="col-md-2">
+					<button class="btn btn-primary btn-lg" id="btn-add">Dodaj!</button>
+				</div>
+			</div>
+
+			<div class="alert alert-danger fade" id='add-alert'></div>
+
+			<div class="alert alert-success fade" id='success-add-alert'>
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Dodano</strong> nową notatkę.
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

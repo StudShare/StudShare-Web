@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @NamedQueries({@NamedQuery(name = "getPersonByLogin", query = "Select su from SiteUser su where su.login = :login"),
-                @NamedQuery(name = "getPersonByEmail", query = "Select su from SiteUser su where su.email = :email")})
+        @NamedQuery(name = "getPersonByEmail", query = "Select su from SiteUser su where su.email = :email")})
 public class SiteUser
 {
     @Id
@@ -27,11 +27,18 @@ public class SiteUser
     @Column(nullable = false)
     private boolean enabled;
 
-    @OneToMany(mappedBy = "siteUser", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "siteUser", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<LogToken> logTokens;
 
-    @OneToOne(mappedBy = "siteUser", cascade = CascadeType.REMOVE)
+    @OneToOne(mappedBy = "siteUser", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private RegToken regToken;
+
+    @OneToMany(mappedBy = "siteUser", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Note> notes;
+
+    @OneToMany(mappedBy = "siteUser", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
+    private List<Rate> rates;
+
 
     public SiteUser() {}
 
@@ -105,4 +112,19 @@ public class SiteUser
         this.enabled = enabled;
     }
 
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
+    public List<Rate> getRates() {
+        return rates;
+    }
+
+    public void setRates(List<Rate> rates) {
+        this.rates = rates;
+    }
 }

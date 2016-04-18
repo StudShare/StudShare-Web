@@ -56,8 +56,10 @@ public class RegistrationHelper
             return noCacheResponse.getNoCacheResponseBuilder(badRequest).entity("Nazwa uzytkownika moze posiadac litery i cyfry oraz miec od 3 do 15 znakow ");
         else if(siteUserManager.findSiteUserByLogin(login) != null)
             return noCacheResponse.getNoCacheResponseBuilder(badRequest).entity("Nazwa uzytkowniak jest juz zajeta");
-        else if (!checkEmail(email))
-            return noCacheResponse.getNoCacheResponseBuilder(badRequest).entity("Wpisny email posiada nieprawidlowe znaki");
+
+
+
+
         else if(!email.equals(repeatEmail))
             return noCacheResponse.getNoCacheResponseBuilder(badRequest).entity("Podane emaile nie sa identyczne");
         else if(password.length() < 6)
@@ -79,9 +81,10 @@ public class RegistrationHelper
             SiteUser siteUser = siteUserManager.addSiteUser(new SiteUser(login, hashPassword, saltForPassword, email));
             RegToken regToken = regTokenManager.addRegToken(new RegToken(token, siteUser));
 
-
-            String activationLink =  uriInfo.getAbsolutePath()+ "?u=" + regToken.getSiteUser().getIdSiteUser()
-                                     + "&activation_key="+ regToken.getActivationKey();
+            System.out.println("\n\n\n\n\n");
+            System.out.println(regToken.getSiteUser().getIdSiteUser());
+            System.out.println("\n\n\n\n\n");
+            String activationLink =  uriInfo.getAbsolutePath()+ "?u=" + regToken.getSiteUser().getIdSiteUser() + "&activation_key="+ regToken.getActivationKey();
 
             mailHelper.sendMail("Studshare.pl", siteUser.getEmail(), "Witamy na Studshare.pl",
                     "Twoje konto jest obecnie nieaktywne." +

@@ -16,11 +16,6 @@ public class MailHelper
 
     public void sendMail(String from, String to, String subject, String msg)
     {
-
-        System.out.println("\n\n\n\n\n\n\n\n\n");
-        java.net.URL classUrl = this.getClass().getResource("com.sun.mail.util.TraceInputStream");
-        System.out.println(classUrl);
-        System.out.println("\n\n\n\n\n\n\n\n\n");
         //creating message
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);

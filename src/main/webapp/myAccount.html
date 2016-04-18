@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Account</title>
+    <script src="libraries/jquery/jquery-2.1.4.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap-tagsinput.js"></script>
+    <script src="libraries/bootstrap/js/typeahead.bundle.js"></script>
+    <link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libraries/bootstrap/css/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="libraries/bootstrap/css/typehead.css" rel="stylesheet">
+
+    <script src="js/utils.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/account.js"></script>
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="index.html"><img src="images/logo_small.png"></a></li>
+                <li>
+                    <div class="input-group input-group-search">
+                        <input type="text" id="search-input" class="form-control" placeholder="Szukaj...">
+                        <span class="btn btn-search input-group-addon" id="search"><span class="glyphicon glyphicon-search"></span></span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="viewNote.html" ><img src="images/browse.png"></a></li>
+                <li><a><img src="images/separator.png"></a></li>
+                <li><a href="myAccount.html"><img src="images/account.png"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center">
+        <h1 >Witaj, <text id="login"></text></h1>
+        <button type="button" class="btn-lg" id="change-password">Zmień Hasło</button>
+        <button type="button" class="btn-lg" id="change-mail">Zmień Maila</button>
+        <button type="button" class="btn-lg" id="logout">Wyloguj mnie</button>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="frame-area" id="change-password-area" style="display:none;">
+                    <div class="header">Zmień hasło</div>
+                    <div class="inputs-frame">
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="password" class="form-control" id="password" placeholder="Hasło">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="password" class="form-control" id="new-password" placeholder="Nowe hasło">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input type="password" class="form-control" id="repeat-new-password" placeholder="Powtórz nowe hasło">
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="alert alert-danger fade" id='change-password-alert'>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn" id="btn-change-password">Zmień!</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="frame-area" id="change-email-area" style="display:none;">
+                    <div class="header">Zmień maila</div>
+                    <div class="inputs-frame">
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" id="email" placeholder="Email">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" id="new-email" placeholder="Nowy email">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" id="repeat-new-email" placeholder="Powtórz nowy email">
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="alert alert-danger fade" id='change-email-alert'>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn" id="btn-change-email">Zmień!</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
