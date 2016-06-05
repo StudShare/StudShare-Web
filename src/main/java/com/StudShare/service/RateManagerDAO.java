@@ -8,6 +8,7 @@ public interface RateManagerDAO
 {
     Rate addRate(Rate rate);
     void deleteRate(Rate rate);
+    void deleteAll(long idNote);
     List<Rate> findRatesByIdNote(long idNote);
     List<Rate> findRatesByIdSiteUser(long idSiteUser);
 }

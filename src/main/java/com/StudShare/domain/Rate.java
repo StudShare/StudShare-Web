@@ -10,6 +10,7 @@ import javax.persistence.*;
                 @NamedQuery(name = "rate.byValue", query = "Select r from Rate r where r.value = :value"),
                 @NamedQuery(name = "rate.getAll", query = "select r from Rate r"),
                 @NamedQuery(name = "rate.getByIdNote", query = "select r from Rate r where r.note.idNote = :idNote"),
+                @NamedQuery(name = "rate.deleteALLByID", query = "delete from Rate where note.idNote = :idNote"),
                 @NamedQuery(name = "rate.getBySiteUser", query = "select r from Rate r where r.siteUser.idSiteUser = :idSiteUser"),
         })
 public class Rate

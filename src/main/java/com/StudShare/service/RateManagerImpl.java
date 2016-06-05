@@ -37,6 +37,14 @@ public class RateManagerImpl implements RateManagerDAO
         sessionFactory.getCurrentSession().delete(rate);
     }
 
+
+    @Override
+    public void deleteAll(long idNote)
+    {
+        sessionFactory.getCurrentSession().getNamedQuery("rate.deleteALLByID").setLong("idNote", idNote).executeUpdate();
+    }
+
+
     @Override
     public List<Rate> findRatesByIdNote(long idNote)
     {

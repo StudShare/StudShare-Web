@@ -48,11 +48,32 @@ $(document).ready(function()
                 average = 'Ocena:' +average;
             }
 
+
+
+            if(note.type=="text")
+            {
+                var $typeIcon='glyphicon glyphicon-text-size';
+                disabledButton = '';
+            }
+            if(note.type=="photo")
+            {
+                var $typeIcon='glyphicon glyphicon-camera';
+                disabledButton = '';
+
+            }
+            if(note.type=="pdf")
+            {
+                var $typeIcon='glyphicon glyphicon-download',
+                    disabledButton = 'disabled';
+            }
+
+
+
             $collapseHeader =
                 '<div class="panel-heading">' +
                 '<h4 class="panel-title">' +
                 '<input hidden="true" data-note="' + note.idNote + '">' +
-                '<a data-toggle="collapse" class="a-collapse" data-note = "' + note.idNote + '" data-parent="#accordion" href="#collapse' + i + '">' + note.title + ' ' + note.type + '</a>' +
+                '<a data-toggle="collapse" class="a-collapse '+ $typeIcon + '" data-note = "'+note.idNote + '" data-parent="#accordion" href="#collapse' + i+ '">'+ '  '+note.title+'</a>'+
                 '<button style="display: inline; float: right; margin-left: 5%" type="button" class="btn-add btn-xs">Dodaj ocenę</button>'+
                 '<p style="display: inline; float: right;" class="rate">'+average+'</p>'+
                 '</h4>' +

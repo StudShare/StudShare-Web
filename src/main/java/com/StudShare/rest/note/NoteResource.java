@@ -138,11 +138,15 @@ public class NoteResource {
         if(!notehelper.checkExistingAndOwnerNote(noteManager.findNoteByID(noteByID), siteUser))
             return Response.status(Response.Status.BAD_REQUEST).build();
         System.out.println("\n\n\n\n");
+
+
         List<Rate> rates = rateManager.findRatesByIdNote(idNote);
+
         for (int i = 0; i < rates.size(); i++) {
-            System.out.println(rates.get(i));
+
+            rateManager.deleteAll(idNote);
+
         }
-        System.out.println("\n\n\n\n");
 
         noteManager.deleteNote(noteByID);
         return Response.status(Response.Status.OK).build();
